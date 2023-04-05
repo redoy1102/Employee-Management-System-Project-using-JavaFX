@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="836.0" prefWidth="913.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Registration form">
+      <font>
+         <Font size="33.0" />
+      </font>
+   </Text>
+   <ImageView fitHeight="112.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@pics/employee-management-system-logo.png" />
+      </image>
+   </ImageView>
+   <HBox prefHeight="65.0" prefWidth="607.0">
+      <children>
+         <VBox prefHeight="65.0" prefWidth="515.0">
+            <children>
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="452.0" text="Full Name" textOverrun="CLIP">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Label>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <TextField fx:id="firstName" prefHeight="30.0" prefWidth="268.0" promptText="Enter first name">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </TextField>
+                     <TextField fx:id="lastName" prefHeight="30.0" prefWidth="228.0" promptText="Enter last name">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </TextField>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <VBox prefHeight="65.0" prefWidth="491.0">
+            <children>
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="425.0" text="Date of Birth" textOverrun="CLIP">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Label>
+               <DatePicker fx:id="regDate" prefHeight="26.0" prefWidth="492.0" />
+            </children>
+         </VBox>
+      </children>
+   </HBox>
+   <HBox prefHeight="38.0" prefWidth="607.0">
+      <children>
+         <TextField fx:id="email" prefHeight="30.0" prefWidth="413.0" promptText="Enter your email" />
+         <TextField fx:id="phn" prefHeight="30.0" prefWidth="513.0" promptText="Enter your phone number" />
+      </children>
+   </HBox>
+   <TextField fx:id="address1" promptText="Enter your address" />
+   <HBox prefHeight="30.0" prefWidth="607.0">
+      <children>
+         <VBox prefHeight="30.0" prefWidth="403.0">
+            <children>
+               <TextField fx:id="address2" prefHeight="30.0" prefWidth="386.0" promptText="Street address line 2" />
+            </children>
+         </VBox>
+         <VBox prefHeight="30.0" prefWidth="485.0">
+            <children>
+               <TextField fx:id="state" prefHeight="30.0" prefWidth="430.0" promptText="State / Province" />
+            </children>
+         </VBox>
+      </children>
+   </HBox>
+   <HBox prefHeight="38.0" prefWidth="607.0">
+      <children>
+         <TextField fx:id="postalCode" prefHeight="30.0" prefWidth="413.0" promptText="Postal code" />
+         <ChoiceBox fx:id="myChoiceBox" prefHeight="26.0" prefWidth="465.0" />
+      </children>
+   </HBox>
+</VBox>
