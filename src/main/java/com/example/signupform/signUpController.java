@@ -11,14 +11,13 @@ import javafx.scene.control.ChoiceBox;
 //import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class signUpController implements Initializable {
     @FXML
-    TextField firstName, lastName;
+    TextField firstName, lastName, phn, email;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -28,13 +27,13 @@ public class HelloController implements Initializable {
         String lName = lastName.getText();
         return fName.trim() + " " + lName.trim();
     }
-    public void signup(ActionEvent event) throws IOException {
 
+    public void signup(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
         root = loader.load();
 
         profileController profileController = loader.getController();
-        profileController.displayName(full_name());
+        profileController.displayInProfile(full_name(), phn.getText(), email.getText(), chooseBloodGroup.getValue(), chooseMarital.getValue(), chooseGender.getValue());
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -43,11 +42,18 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    private ChoiceBox<String> myChoiceBox;
-    private String[] gender = {"Male", "Female"};
-
+    private ChoiceBox<String> chooseGender, chooseBloodGroup, chooseMarital;
+    private String[] gender = {"Choose gender", "Male", "Female"};
+    private String[] bloods = {"Choose blood group", "AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"};
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        myChoiceBox.getItems().addAll(gender);
+        chooseGender.getItems().addAll(gender);
+        chooseGender.setValue(gender[0]);
+
+        chooseBloodGroup.getItems().addAll(bloods);
+        chooseBloodGroup.setValue(bloods[0]);
+
+        chooseMarital.getItems().addAll("Married", "Unmarried");
+        chooseMarital.setValue("choose marital statue");
     }
 }
