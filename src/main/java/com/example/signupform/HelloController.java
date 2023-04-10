@@ -21,19 +21,20 @@ public class HelloController implements Initializable {
     TextField firstName, lastName;
     private Stage stage;
     private Scene scene;
-
     private Parent root;
 
-    public void signup(ActionEvent event) throws IOException {
+    public String full_name(){
         String fName = firstName.getText();
         String lName = lastName.getText();
-        String fullName = fName + " " + lName;
+        return fName.trim() + " " + lName.trim();
+    }
+    public void signup(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
         root = loader.load();
 
         profileController profileController = loader.getController();
-        profileController.displayName(fullName);
+        profileController.displayName(full_name());
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
