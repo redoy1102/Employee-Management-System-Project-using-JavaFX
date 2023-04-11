@@ -18,12 +18,12 @@
          <children>
             <HBox prefHeight="14.0" prefWidth="667.0">
                <children>
-                  <Label fx:id="showPhone" alignment="CENTER" prefHeight="30.0" prefWidth="302.0" text="Phone">
+                  <Label fx:id="showPhone" alignment="CENTER" prefHeight="30.0" prefWidth="348.0" text="Phone">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showEmail" alignment="CENTER" prefHeight="30.0" prefWidth="365.0" text="Email">
+                  <Label fx:id="showEmail" alignment="CENTER" prefHeight="30.0" prefWidth="410.0" text="Email">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -33,28 +33,33 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </HBox>
-            <HBox prefHeight="2.0" prefWidth="667.0">
+            <HBox prefHeight="14.0" prefWidth="667.0">
                <children>
-                  <Label fx:id="showBlood" alignment="CENTER" prefHeight="30.0" prefWidth="173.0" text="showBlood">
+                  <Label fx:id="showRegDate" alignment="CENTER" prefHeight="30.0" prefWidth="348.0" text="Reg: Date">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showMarital" alignment="CENTER" prefHeight="30.0" prefWidth="231.0" text="showMarital">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="showGender" alignment="CENTER" prefHeight="30.0" prefWidth="282.0" text="showGender">
+                  <Label fx:id="showDob" alignment="CENTER" prefHeight="30.0" prefWidth="410.0" text="Date of Birth">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                </children>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
             </HBox>
+            <Label fx:id="showGenderBloodMarital" alignment="CENTER" prefHeight="30.0" prefWidth="671.0" text="Gender, Blood group, Marital Status">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="showAddress" alignment="CENTER" prefHeight="30.0" prefWidth="671.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
    </children>

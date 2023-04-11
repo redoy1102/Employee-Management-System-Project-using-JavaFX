@@ -8,7 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 //import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -17,7 +19,11 @@ import java.util.ResourceBundle;
 
 public class signUpController implements Initializable {
     @FXML
-    TextField firstName, lastName, phn, email;
+    TextField firstName, lastName, phn, email, postalCode;
+    @FXML
+    TextArea addre;
+    @FXML
+    DatePicker dobPicker, regDate;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -33,7 +39,11 @@ public class signUpController implements Initializable {
         root = loader.load();
 
         profileController profileController = loader.getController();
-        profileController.displayInProfile(full_name(), phn.getText(), email.getText(), chooseBloodGroup.getValue(), chooseMarital.getValue(), chooseGender.getValue());
+
+        //data sent to profile controller
+        profileController.personalInfo(full_name(), phn.getText(), email.getText(), String.valueOf(dobPicker.getValue()), String.valueOf(regDate.getValue()));
+        profileController.personalInfoChoice(chooseBloodGroup.getValue(), chooseMarital.getValue(), chooseGender.getValue());
+        profileController.personalInfoAddress(addre.getText(), postalCode.getText());
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

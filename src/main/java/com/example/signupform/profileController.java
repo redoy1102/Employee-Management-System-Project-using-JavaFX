@@ -1,19 +1,29 @@
 package com.example.signupform;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class profileController {
     @FXML
-    Label fullName, showPhone, showEmail, showBlood, showMarital, showGender;
+    Label fullName, showPhone, showEmail, showGenderBloodMarital, showAddress, showDob, showRegDate;
 
-    public void displayInProfile(String name, String phn, String email, String blood, String marit, String gender){
+    public void personalInfo(String name, String phn, String email, String dob, String regDate){
         fullName.setText("Welcome, " + name);
         showPhone.setText("Phone: " +  phn);
         showEmail.setText("Email: " +  email);
-        showBlood.setText("Blood: " +  blood);
-        showMarital.setText("Marital Status: " +  marit);
-        showGender.setText("Gender: " +  gender);
+        showDob.setText("Date of birth: " + dob);
+        showRegDate.setText("Joining date: " + regDate);
     }
 
+    public void personalInfoChoice(String blood, String marit, String gender){
+        showGenderBloodMarital.setText(gender + ", " + blood + ", " + marit);
+    }
+
+    public void personalInfoAddress(String address, String postalCode){
+        if(address.isEmpty() || postalCode.isEmpty()){
+            showAddress.setText("Address or postal code is empty.");
+        }
+        else {
+            showAddress.setText(address + ", " + postalCode);
+        }
+    }
 }
