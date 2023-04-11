@@ -9,13 +9,21 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.profileController">
    <children>
-      <Label fx:id="fullName" alignment="CENTER" contentDisplay="CENTER" layoutY="8.0" prefHeight="36.0" prefWidth="667.0" textAlignment="CENTER" textFill="#1e08ea">
+      <Label fx:id="fullName" alignment="CENTER" contentDisplay="CENTER" layoutY="8.0" prefHeight="36.0" prefWidth="667.0" text="welcome" textAlignment="CENTER" textFill="#1e08ea">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
       <VBox layoutY="50.0" prefHeight="350.0" prefWidth="667.0">
          <children>
+            <Label fx:id="showUserId" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="668.0" text="user id">
+               <font>
+                  <Font name="Cooper Black" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
             <HBox prefHeight="14.0" prefWidth="667.0">
                <children>
                   <Label fx:id="showPhone" alignment="CENTER" prefHeight="30.0" prefWidth="348.0" text="Phone">

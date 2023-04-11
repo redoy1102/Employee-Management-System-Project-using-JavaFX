@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -14,13 +16,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="558.0" prefWidth="558.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.signUpController">
+<VBox alignment="CENTER" prefHeight="756.0" prefWidth="701.0" spacing="20.0" style="-fx-background-color: cyan;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.signUpController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Registration form">
       <font>
-         <Font size="33.0" />
+         <Font name="Bell MT" size="47.0" />
       </font>
    </Text>
    <ImageView fitHeight="112.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
@@ -34,7 +36,7 @@
       </font>
    </Text>
 
-   <HBox prefHeight="65.0" prefWidth="607.0">
+   <HBox prefHeight="69.0" prefWidth="680.0">
       <children>
          <VBox prefHeight="65.0" prefWidth="515.0">
             <children>
@@ -75,21 +77,21 @@
    
    <HBox prefHeight="65.0" prefWidth="607.0">
       <children>
-         <VBox prefHeight="65.0" prefWidth="515.0">
+         <VBox prefHeight="69.0" prefWidth="661.0">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="516.0" text="Phone &amp; Email" textOverrun="CLIP">
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="591.0" text="Phone &amp; Email" textOverrun="CLIP">
                   <font>
                      <Font size="20.0" />
                   </font>
                </Label>
-               <HBox prefHeight="40.0" prefWidth="425.0">
+               <HBox prefHeight="40.0" prefWidth="631.0">
                   <children>
-                     <TextField fx:id="phn" prefHeight="40.0" prefWidth="218.0" promptText="Enter Phone Number">
+                     <TextField fx:id="phn" alignment="CENTER" prefHeight="40.0" prefWidth="255.0" promptText="Enter Phone Number">
                         <font>
                            <Font size="18.0" />
                         </font>
                      </TextField>
-                     <TextField fx:id="email" prefHeight="40.0" prefWidth="308.0" promptText="Enter Email">
+                     <TextField fx:id="email" alignment="CENTER" prefHeight="40.0" prefWidth="406.0" promptText="Enter Email">
                         <font>
                            <Font size="18.0" />
                         </font>
@@ -101,35 +103,60 @@
       </children>
    </HBox>
 
-   <HBox prefHeight="28.0" prefWidth="518.0">
+   <HBox prefHeight="26.0" prefWidth="613.0">
       <children>
-         <ChoiceBox fx:id="chooseBloodGroup" prefHeight="26.0" prefWidth="166.0" />
-         <ChoiceBox fx:id="chooseMarital" prefHeight="26.0" prefWidth="166.0" />
-         <ChoiceBox fx:id="chooseGender" prefHeight="26.0" prefWidth="188.0" />
+         <ChoiceBox fx:id="chooseBloodGroup" prefHeight="26.0" prefWidth="242.0" />
+         <ChoiceBox fx:id="chooseMarital" prefHeight="26.0" prefWidth="249.0" />
+         <ChoiceBox fx:id="chooseGender" prefHeight="26.0" prefWidth="259.0" />
       </children>
    </HBox>
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <HBox prefHeight="40.0" prefWidth="661.0">
       <children>
-         <TextArea fx:id="addre" prefHeight="56.0" prefWidth="191.0" promptText="Enter your address">
+         <TextArea fx:id="addre" prefHeight="56.0" prefWidth="251.0" promptText="Enter your address">
             <font>
                <Font size="18.0" />
             </font></TextArea>
-         <TextField fx:id="postalCode" prefHeight="56.0" prefWidth="172.0" promptText="Enter postal code">
+         <TextField fx:id="postalCode" alignment="CENTER" prefHeight="56.0" prefWidth="200.0" promptText="Enter postal code">
             <font>
                <Font size="18.0" />
             </font>
          </TextField>
-         <VBox prefHeight="56.0" prefWidth="155.0">
+         <VBox prefHeight="56.0" prefWidth="213.0">
             <children>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Reg: date" textAlignment="CENTER" wrappingWidth="155.13671875">
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Reg: date" textAlignment="CENTER" wrappingWidth="211.13671875">
                   <font>
                      <Font size="16.0" />
                   </font>
                </Text>
-               <DatePicker fx:id="regDate" prefHeight="32.0" prefWidth="156.0" promptText="Registration date" />
+               <DatePicker fx:id="regDate" prefHeight="34.0" prefWidth="212.0" promptText="Registration date" />
             </children>
          </VBox>
       </children>
    </HBox>
-   <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signup" text="Signup" />
+   <HBox prefHeight="40.0" prefWidth="621.0">
+      <children>
+         <TextField fx:id="userId" alignment="CENTER" prefHeight="25.0" prefWidth="280.0" promptText="Enter user id">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </TextField>
+         <PasswordField fx:id="password" alignment="CENTER" prefHeight="39.0" prefWidth="382.0" promptText="Enter password to login">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </PasswordField>
+      </children>
+   </HBox>
+   <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signup" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: black;" text="Signup" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="16.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></Button>
+   <Label fx:id="emptyField" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="226.0" textFill="#f21c04">
+      <font>
+         <Font name="System Bold" size="20.0" />
+      </font>
+   </Label>
 </VBox>

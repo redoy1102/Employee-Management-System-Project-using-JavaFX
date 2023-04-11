@@ -4,14 +4,15 @@ import javafx.scene.control.Label;
 
 public class profileController {
     @FXML
-    Label fullName, showPhone, showEmail, showGenderBloodMarital, showAddress, showDob, showRegDate;
+    Label fullName, showPhone, showEmail, showGenderBloodMarital, showAddress, showDob, showRegDate, showUserId;
 
-    public void personalInfo(String name, String phn, String email, String dob, String regDate){
+    public void personalInfo(String name, String phn, String email, String dob, String regDate, String userId){
         fullName.setText("Welcome, " + name);
         showPhone.setText("Phone: " +  phn);
         showEmail.setText("Email: " +  email);
         showDob.setText("Date of birth: " + dob);
         showRegDate.setText("Joining date: " + regDate);
+        showUserId.setText("User Id: " + userId);
     }
 
     public void personalInfoChoice(String blood, String marit, String gender){

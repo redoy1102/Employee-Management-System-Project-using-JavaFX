@@ -7,11 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-//import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -19,11 +16,15 @@ import java.util.ResourceBundle;
 
 public class signUpController implements Initializable {
     @FXML
-    TextField firstName, lastName, phn, email, postalCode;
+    Label emptyField;
+    @FXML
+    TextField firstName, lastName, phn, email, postalCode, userId;
     @FXML
     TextArea addre;
     @FXML
     DatePicker dobPicker, regDate;
+    @FXML
+    PasswordField password;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -35,20 +36,41 @@ public class signUpController implements Initializable {
     }
 
     public void signup(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
-        root = loader.load();
 
-        profileController profileController = loader.getController();
+        String fName = firstName.getText();
+        String lName = lastName.getText();
+        String dob = String.valueOf(dobPicker.getValue());
+        String phone = phn.getText();
+        String mail = email.getText();
+        String blood = chooseBloodGroup.getValue();
+        String marital = chooseMarital.getValue();
+        String gender = chooseGender.getValue();
+        String area = addre.getText();
+        String pCode = postalCode.getText();
+        String rDate = String.valueOf(regDate.getValue());
+        String uId = userId.getText();
+        String pass = password.getText();
 
-        //data sent to profile controller
-        profileController.personalInfo(full_name(), phn.getText(), email.getText(), String.valueOf(dobPicker.getValue()), String.valueOf(regDate.getValue()));
-        profileController.personalInfoChoice(chooseBloodGroup.getValue(), chooseMarital.getValue(), chooseGender.getValue());
-        profileController.personalInfoAddress(addre.getText(), postalCode.getText());
+        if(fName.isEmpty() || lName.isEmpty() || dob.isEmpty() || phone.isEmpty() || mail.isEmpty() || blood.isEmpty() || marital.isEmpty() || gender.isEmpty() || area.isEmpty() || pCode.isEmpty() || rDate.isEmpty() || uId.isEmpty() || pass.isEmpty())
+        {
+            emptyField.setText("Field can't be empty!");
+        }
+        else
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+            root = loader.load();
+            profileController profileController = loader.getController();
 
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            //data sent to profile controller
+            profileController.personalInfo(full_name(), phone, mail, dob, rDate, uId);
+            profileController.personalInfoChoice(blood, marital, gender);
+            profileController.personalInfoAddress(area, pCode);
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @FXML
