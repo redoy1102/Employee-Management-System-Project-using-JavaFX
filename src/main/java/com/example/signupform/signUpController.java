@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class signUpController implements Initializable {
     @FXML
@@ -29,16 +31,11 @@ public class signUpController implements Initializable {
     private Scene scene;
     private Parent root;
 
-    public String full_name(){
-        String fName = firstName.getText();
-        String lName = lastName.getText();
-        return fName.trim() + " " + lName.trim();
-    }
-
     public void signup(ActionEvent event) throws IOException {
 
         String fName = firstName.getText();
         String lName = lastName.getText();
+        String fullName = fName.trim() + " " + lName.trim();
         String dob = String.valueOf(dobPicker.getValue());
         String phone = phn.getText();
         String mail = email.getText();
@@ -53,7 +50,12 @@ public class signUpController implements Initializable {
 
         if(fName.isEmpty() || lName.isEmpty() || dob.isEmpty() || phone.isEmpty() || mail.isEmpty() || blood.isEmpty() || marital.isEmpty() || gender.isEmpty() || area.isEmpty() || pCode.isEmpty() || rDate.isEmpty() || uId.isEmpty() || pass.isEmpty())
         {
-            emptyField.setText("Field can't be empty!");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Field can't be empty!");
+            alert.showAndWait();
+//            emptyField.setText("Field can't be empty!");
         }
         else
         {
@@ -62,7 +64,7 @@ public class signUpController implements Initializable {
             profileController profileController = loader.getController();
 
             //data sent to profile controller
-            profileController.personalInfo(full_name(), phone, mail, dob, rDate, uId);
+            profileController.personalInfo(fullName, phone, mail, dob, rDate, uId);
             profileController.personalInfoChoice(blood, marital, gender);
             profileController.personalInfoAddress(area, pCode);
 
