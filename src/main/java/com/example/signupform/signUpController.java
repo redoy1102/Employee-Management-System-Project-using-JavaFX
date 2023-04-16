@@ -94,15 +94,17 @@ public class signUpController implements Initializable {
 
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Test Connection");
-                alert.setHeaderText("Employee Registration.");
-                alert.setContentText("Record Added");
+                alert.setHeaderText("Record Added");
                 alert.showAndWait();
 
+                table();
 
-            } catch (SQLException e) {
+            }
+            catch (SQLException e) {
                 throw new RuntimeException(e);
             }
 
+            //Moving to the profile page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
             root = loader.load();
             profileController profileController = loader.getController();
@@ -115,6 +117,12 @@ public class signUpController implements Initializable {
             stage.setScene(scene);
             stage.show();
         }
+
+    }
+
+    public void table(){
+        Connect();
+
     }
 
     @FXML

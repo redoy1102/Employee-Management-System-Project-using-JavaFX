@@ -52,7 +52,6 @@ public class profileController {
     @FXML
     private TableView<?> table;
 
-
     @FXML
     void delete_button(ActionEvent event) {
 
