@@ -76,14 +76,39 @@ public class signUpController implements Initializable {
         }
         else
         {
+            try{
+                pst = con.prepareStatement("insert into signup(userId, firstName, lastName, phn, email, bloodGroup, maritalStatus, gender, dob, regDate, address, postalCode)values(?,?,?,?,?,?,?,?,?,?,?,?)");
+                pst.setString(1, uId);
+                pst.setString(2, fName);
+                pst.setString(3, lName);
+                pst.setString(4, phone);
+                pst.setString(5, mail);
+                pst.setString(6, blood);
+                pst.setString(7, marital);
+                pst.setString(8, gender);
+                pst.setString(9, dob);
+                pst.setString(10, rDate);
+                pst.setString(11, area);
+                pst.setString(12, pCode);
+                pst.executeUpdate();
+
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Test Connection");
+                alert.setHeaderText("Employee Registration.");
+                alert.setContentText("Record Added");
+                alert.showAndWait();
+
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
             root = loader.load();
             profileController profileController = loader.getController();
 
             //data sent to profile controller
-            profileController.personalInfo(fullName, phone, mail, dob, rDate, uId);
-            profileController.personalInfoChoice(blood, marital, gender);
-            profileController.personalInfoAddress(area, pCode);
+            profileController.sent_data_to_profile_controller(fName, lName, phone, mail, dob, rDate, uId, blood, marital, gender, area, pCode);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

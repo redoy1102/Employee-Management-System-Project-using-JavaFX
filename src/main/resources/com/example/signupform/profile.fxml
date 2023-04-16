@@ -8,17 +8,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.profileController">
+<AnchorPane prefHeight="767.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.profileController">
    <children>
-      <Label alignment="CENTER" layoutY="14.0" prefHeight="50.0" prefWidth="941.0" text="Employee Management System" textFill="#4d01ff">
+      <Label alignment="CENTER" layoutY="14.0" prefHeight="50.0" prefWidth="1074.0" text="Employee Management System" textFill="#4d01ff">
          <font>
             <Font name="Bodoni MT Bold" size="40.0" />
          </font>
       </Label>
-      <TableView fx:id="table" layoutX="20.0" layoutY="83.0" prefHeight="440.0" prefWidth="902.0">
+      <TableView fx:id="table" layoutX="46.0" layoutY="83.0" prefHeight="440.0" prefWidth="978.0">
         <columns>
           <TableColumn fx:id="showUserId" prefWidth="75.0" text="User ID" />
-          <TableColumn fx:id="fullName" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="fName" prefWidth="75.0" text="First Name" />
+            <TableColumn fx:id="lName" prefWidth="75.0" text="Last Name" />
             <TableColumn fx:id="showPhone" prefWidth="103.0" text="Phone number" />
             <TableColumn fx:id="showEmail" prefWidth="47.0" text="Email" />
             <TableColumn fx:id="showBlood" prefWidth="97.0" text="Blood Group" />

@@ -1,9 +1,7 @@
 package com.example.signupform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,7 +14,10 @@ public class profileController {
     private Button updateButton;
 
     @FXML
-    private TableColumn<?, ?> fullName;
+    private TableColumn<?, ?> fName;
+
+    @FXML
+    private TableColumn<?, ?> lName;
 
     @FXML
     private TableColumn<?, ?> showAddress;
@@ -62,7 +63,7 @@ public class profileController {
 
     }
 
-    public void personalInfo(String fullName, String phone, String mail, String dob, String rDate, String uId){
+    public void sent_data_to_profile_controller(String fName , String lName, String phone, String mail, String dob, String rDate, String uId, String blood, String marital, String gender, String area, String pCode){
 
     }
 
