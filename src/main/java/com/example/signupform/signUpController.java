@@ -8,31 +8,44 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Label;
+//import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+
+
 public class signUpController implements Initializable {
-    @FXML
-    Label emptyField;
     @FXML
     TextField firstName, lastName, phn, email, postalCode, userId;
     @FXML
     TextArea addre;
     @FXML
     DatePicker dobPicker, regDate;
-    @FXML
-    PasswordField password;
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    public void signup(ActionEvent event) throws IOException {
+    Connection con;
+    PreparedStatement pst;
+    int myIndex;
+    int id;
+    public void Connect(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/employeemanagementsystem","root","");
+        } catch (ClassNotFoundException | SQLException ex){
+            ex.printStackTrace();
+        } finally {
+            System.out.println("Database connected.");
+        }
+    }
 
+    public void signup(ActionEvent event) throws IOException {
         String fName = firstName.getText();
         String lName = lastName.getText();
         String fullName = fName.trim() + " " + lName.trim();
@@ -46,16 +59,20 @@ public class signUpController implements Initializable {
         String pCode = postalCode.getText();
         String rDate = String.valueOf(regDate.getValue());
         String uId = userId.getText();
-        String pass = password.getText();
 
-        if(fName.isEmpty() || lName.isEmpty() || dob.isEmpty() || phone.isEmpty() || mail.isEmpty() || blood.isEmpty() || marital.isEmpty() || gender.isEmpty() || area.isEmpty() || pCode.isEmpty() || rDate.isEmpty() || uId.isEmpty() || pass.isEmpty())
+        if(fName.isEmpty() || lName.isEmpty() ||
+                dob.isEmpty() || phone.isEmpty() ||
+                mail.isEmpty() || blood.isEmpty() ||
+                marital.isEmpty() || gender.isEmpty() ||
+                area.isEmpty() || pCode.isEmpty() ||
+                rDate.isEmpty() || uId.isEmpty()
+          )
         {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("Field can't be empty!");
             alert.showAndWait();
-//            emptyField.setText("Field can't be empty!");
         }
         else
         {
@@ -79,8 +96,10 @@ public class signUpController implements Initializable {
     private ChoiceBox<String> chooseGender, chooseBloodGroup, chooseMarital;
     private String[] gender = {"Choose gender", "Male", "Female"};
     private String[] bloods = {"Choose blood group", "AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"};
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle rb) {
+        Connect();
         chooseGender.getItems().addAll(gender);
         chooseGender.setValue(gender[0]);
 
@@ -90,4 +109,5 @@ public class signUpController implements Initializable {
         chooseMarital.getItems().addAll("Married", "Unmarried");
         chooseMarital.setValue("choose marital statue");
     }
+
 }

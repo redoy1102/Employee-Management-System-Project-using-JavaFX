@@ -1,74 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.profileController">
+<AnchorPane prefHeight="677.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.signupform.profileController">
    <children>
-      <Label fx:id="fullName" alignment="CENTER" contentDisplay="CENTER" layoutY="8.0" prefHeight="36.0" prefWidth="667.0" text="welcome" textAlignment="CENTER" textFill="#1e08ea">
+      <Label alignment="CENTER" layoutY="14.0" prefHeight="50.0" prefWidth="941.0" text="Employee Management System" textFill="#4d01ff">
          <font>
-            <Font size="25.0" />
+            <Font name="Bodoni MT Bold" size="40.0" />
          </font>
       </Label>
-      <VBox layoutY="50.0" prefHeight="350.0" prefWidth="667.0">
-         <children>
-            <Label fx:id="showUserId" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="668.0" text="user id">
-               <font>
-                  <Font name="Cooper Black" size="25.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="15.0" top="15.0" />
-               </VBox.margin>
-            </Label>
-            <HBox prefHeight="14.0" prefWidth="667.0">
-               <children>
-                  <Label fx:id="showPhone" alignment="CENTER" prefHeight="30.0" prefWidth="348.0" text="Phone">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="showEmail" alignment="CENTER" prefHeight="30.0" prefWidth="410.0" text="Email">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox prefHeight="14.0" prefWidth="667.0">
-               <children>
-                  <Label fx:id="showRegDate" alignment="CENTER" prefHeight="30.0" prefWidth="348.0" text="Reg: Date">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="showDob" alignment="CENTER" prefHeight="30.0" prefWidth="410.0" text="Date of Birth">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <Label fx:id="showGenderBloodMarital" alignment="CENTER" prefHeight="30.0" prefWidth="671.0" text="Gender, Blood group, Marital Status">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
-            </Label>
-            <Label fx:id="showAddress" alignment="CENTER" prefHeight="30.0" prefWidth="671.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
+      <TableView fx:id="table" layoutX="20.0" layoutY="83.0" prefHeight="440.0" prefWidth="902.0">
+        <columns>
+          <TableColumn fx:id="showUserId" prefWidth="75.0" text="User ID" />
+          <TableColumn fx:id="fullName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="showPhone" prefWidth="103.0" text="Phone number" />
+            <TableColumn fx:id="showEmail" prefWidth="47.0" text="Email" />
+            <TableColumn fx:id="showBlood" prefWidth="97.0" text="Blood Group" />
+            <TableColumn fx:id="showMarital" prefWidth="91.0" text="Marital status" />
+            <TableColumn fx:id="showGender" prefWidth="62.0" text="Gender" />
+            <TableColumn fx:id="showDob" prefWidth="90.0" text="Date of Birth" />
+            <TableColumn fx:id="showRegDate" prefWidth="81.0" text="Joining Date" />
+            <TableColumn fx:id="showAddress" prefWidth="99.0" text="Address" />
+            <TableColumn fx:id="showPostal" prefWidth="81.0" text="Postal Code" />
+        </columns>
+      </TableView>
+
+      <Button fx:id="updateButton" contentDisplay="CENTER" layoutX="260.0" layoutY="579.0" mnemonicParsing="false" onAction="#update_button" style="-fx-background-color: green;" text="Update" textFill="#fffbfb">
+         <font>
+            <Font size="29.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="deleteButton" contentDisplay="CENTER" layoutX="540.0" layoutY="579.0" mnemonicParsing="false" onAction="#delete_button" style="-fx-background-color: red;" text="Delete" textFill="#f8f6f6">
+         <font>
+            <Font size="29.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

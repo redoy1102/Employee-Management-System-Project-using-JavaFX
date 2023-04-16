@@ -2,29 +2,75 @@ package com.example.signupform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+
 public class profileController {
     @FXML
-    Label fullName, showPhone, showEmail, showGenderBloodMarital, showAddress, showDob, showRegDate, showUserId;
+    private Button deleteButton;
+    @FXML
+    private Button updateButton;
 
-    public void personalInfo(String name, String phn, String email, String dob, String regDate, String userId){
-        fullName.setText("Welcome, " + name);
-        showPhone.setText("Phone: " +  phn);
-        showEmail.setText("Email: " +  email);
-        showDob.setText("Date of birth: " + dob);
-        showRegDate.setText("Joining date: " + regDate);
-        showUserId.setText("User Id: " + userId);
+    @FXML
+    private TableColumn<?, ?> fullName;
+
+    @FXML
+    private TableColumn<?, ?> showAddress;
+
+    @FXML
+    private TableColumn<?, ?> showBlood;
+
+    @FXML
+    private TableColumn<?, ?> showDob;
+
+    @FXML
+    private TableColumn<?, ?> showEmail;
+
+    @FXML
+    private TableColumn<?, ?> showGender;
+
+    @FXML
+    private TableColumn<?, ?> showMarital;
+
+    @FXML
+    private TableColumn<?, ?> showPhone;
+
+    @FXML
+    private TableColumn<?, ?> showPostal;
+
+    @FXML
+    private TableColumn<?, ?> showRegDate;
+
+    @FXML
+    private TableColumn<?, ?> showUserId;
+
+    @FXML
+    private TableView<?> table;
+
+
+    @FXML
+    void delete_button(ActionEvent event) {
+
+    }
+
+    @FXML
+    void update_button(ActionEvent event) {
+
+    }
+
+    public void personalInfo(String fullName, String phone, String mail, String dob, String rDate, String uId){
+
     }
 
     public void personalInfoChoice(String blood, String marit, String gender){
-        showGenderBloodMarital.setText(gender + ", " + blood + ", " + marit);
+
     }
 
     public void personalInfoAddress(String address, String postalCode){
-        if(address.isEmpty() || postalCode.isEmpty()){
-            showAddress.setText("Address or postal code is empty.");
-        }
-        else {
-            showAddress.setText(address + ", " + postalCode);
-        }
+
     }
 }

@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -135,19 +134,14 @@
    </HBox>
    <HBox prefHeight="40.0" prefWidth="621.0">
       <children>
-         <TextField fx:id="userId" alignment="CENTER" prefHeight="25.0" prefWidth="280.0" promptText="Enter user id">
+         <TextField fx:id="userId" alignment="CENTER" prefHeight="39.0" prefWidth="664.0" promptText="Enter user id">
             <font>
                <Font size="18.0" />
             </font>
          </TextField>
-         <PasswordField fx:id="password" alignment="CENTER" prefHeight="39.0" prefWidth="382.0" promptText="Enter password to login">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </PasswordField>
       </children>
    </HBox>
-   <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signup" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: black;" text="Signup" textAlignment="CENTER" textFill="WHITE">
+   <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#signup" prefHeight="39.0" prefWidth="147.0" style="-fx-background-color: black;" text="Submit info" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font name="System Bold" size="16.0" />
       </font>
