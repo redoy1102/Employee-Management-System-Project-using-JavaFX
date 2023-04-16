@@ -1,7 +1,5 @@
 package com.example.signupform;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,13 +16,20 @@ import java.util.ResourceBundle;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-import javafx.scene.control.TableView;
-
-
 
 public class signUpController implements Initializable{
     @FXML
-    TextField firstName, lastName, phn, email, postalCode, userId;
+    TextField firstName;
+    @FXML
+    TextField lastName;
+    @FXML
+    TextField phn;
+    @FXML
+    TextField email;
+    @FXML
+    TextField postalCode;
+    @FXML
+    TextField userId;
     @FXML
     TextArea addre;
     @FXML
@@ -35,8 +40,7 @@ public class signUpController implements Initializable{
 
     Connection con;
     PreparedStatement pst;
-    int myIndex;
-    int id;
+
     public void Connect(){
         try{
             con = DriverManager.getConnection("jdbc:mysql://localhost/employeemanagementsystem","root","");
@@ -95,11 +99,10 @@ public class signUpController implements Initializable{
                 pst.executeUpdate();
 
                 Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Test Connection");
+                alert.setTitle("Employee Management System");
                 alert.setHeaderText("Record Added");
                 alert.showAndWait();
 
-                //table();
 
             }
             catch (SQLException e) {
@@ -110,6 +113,7 @@ public class signUpController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
             root = loader.load();
             profileController profileController = loader.getController();
+            profileController.receiveDataFromSignUpController(fName, lName, phone, mail, pCode, uId, area, dob, rDate, blood, marital, gender);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,10 +18,10 @@ import java.sql.*;
 
 
 public class profileController implements Initializable {
-    @FXML
-    private Button deleteButton;
-    @FXML
-    private Button updateButton;
+//    @FXML
+//    private Button deleteButton;
+//    @FXML
+//    private Button updateButton;
 
     @FXML
     private TableColumn<Employee, String> showFName;
@@ -61,18 +62,94 @@ public class profileController implements Initializable {
     @FXML
     private TableView<Employee> table;
 
+    int myIndex;
+    int id;
+
     Connection con;
     PreparedStatement pst;
+    public String fName, lastName, phn, email, postalCode, userId, addre, dobPicker, regDate, blood, marital, gender;
 
     @FXML
-    void delete_button(ActionEvent event) {
-
+    public void receiveDataFromSignUpController(String firstName, String lastName, String phn, String email, String postalCode, String userId, String addre, String dobPicker, String regDate, String blood, String marital, String gender){
+        this.fName = firstName;
+        this.lastName = lastName;
+        this.phn = phn;
+        this.email = email;
+        this.postalCode = postalCode;
+        this.userId = userId;
+        this.addre = addre;
+        this.dobPicker = dobPicker;
+        this.regDate = regDate;
+        this.blood = blood;
+        this.marital = marital;
+        this.gender = gender;
     }
 
-    @FXML
-    void update_button(ActionEvent event) {
-
-    }
+//    @FXML
+//    void delete_button(ActionEvent event) {
+//        myIndex = table.getSelectionModel().getSelectedIndex();
+//        id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getUserId()));
+//
+//        try{
+//            pst = con.prepareStatement("delete from signup where id = ? ");
+//            pst.setInt(1, id);
+//            pst.executeUpdate();
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Employee Management System");
+//            alert.setHeaderText("Data deleted!");
+//            alert.showAndWait();
+//            table();
+//
+//
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//
+//    @FXML
+//    void update_button(ActionEvent event) {
+//        String u_Id, f_Name, l_Name, phn_, email_, blood_Group, marital_Status, gender_, dob_, reg_Date, address_, postalCode_;
+//        myIndex = table.getSelectionModel().getSelectedIndex();
+//        id = Integer.parseInt(String.valueOf(table.getItems().get(myIndex).getUserId()));
+//
+//        u_Id = userId;
+//        f_Name = fName;
+//        l_Name = lastName;
+//        phn_ = phn;
+//        email_ = email;
+//        blood_Group = blood;
+//        marital_Status = marital;
+//        gender_ = gender;
+//        dob_ = dobPicker;
+//        reg_Date = regDate;
+//        address_ = addre;
+//        postalCode_ = postalCode;
+//        try{
+//            pst = con.prepareStatement("update signup set userId = ?, firstName = ?, lastName = ?, phn = ?, email = ?, bloodGroup = ?, maritalStatus = ?, gender = ?, dob = ?, regDate = ?, address = ?, postalCode = ? where id = ?");
+//            pst.setString(1, u_Id);
+//            pst.setString(2, f_Name);
+//            pst.setString(3, l_Name);
+//            pst.setString(4, phn_);
+//            pst.setString(5, email_);
+//            pst.setString(6, blood_Group);
+//            pst.setString(7, marital_Status);
+//            pst.setString(8, gender_);
+//            pst.setString(9, dob_);
+//            pst.setString(10, reg_Date);
+//            pst.setString(11, address_);
+//            pst.setString(12, postalCode_);
+//            pst.executeUpdate();
+//
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Employee Management System");
+//            alert.setHeaderText("Data Updated!");
+//            alert.showAndWait();
+//            table();
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     public void Connect(){
         try{
@@ -109,7 +186,6 @@ public class profileController implements Initializable {
             e.setPostalCode(rs.getString("postalCode"));
             employees.add(e);
         }
-
         table.setItems(employees);
         showUserId.setCellValueFactory(f -> f.getValue().userIdProperty());
         showFName.setCellValueFactory(f -> f.getValue().firstNameProperty());
